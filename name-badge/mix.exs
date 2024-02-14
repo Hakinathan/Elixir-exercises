@@ -1,9 +1,9 @@
-defmodule Username.MixProject do
+defmodule NameBadge.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :german_sysadmin,
+      app: :name_badge,
       version: "0.1.0",
       # elixir: "~> 1.10",
       start_permanent: Mix.env() == :prod,
