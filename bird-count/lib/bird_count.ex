@@ -3,28 +3,16 @@ defmodule BirdCount do
   def today([head | _]), do: head
 
   def increment_day_count([]), do: [1]
-  def increment_day_count([head | list]), do: [head + 1 | list]
+  def increment_day_count([head | tail]), do: [head + 1 | tail]
 
   def has_day_without_birds?([]), do: false
-  def has_day_without_birds?([head  | tail]) do
-    case head do
-      0 -> true
-      _ -> has_day_without_birds?(tail)
-    end
-  end
+  def has_day_without_birds?([0 | _]), do: true
+  def has_day_without_birds?([_  | tail]), do: has_day_without_birds?(tail)
 
-  def total(list) do
-    case list do
-      [head | tail] -> head + total(tail)
-      _ -> 0
-    end
-  end
+  def total([]), do: 0
+  def total([head | tail]), do: head + total(tail)
 
   def busy_days([]), do: 0
-  def busy_days(list) do
-    case list do
-      [head | tail] when head > 4 -> 1 + busy_days(tail)
-      [_ | tail] -> busy_days(tail)
-    end
-  end
+  def busy_days([h | t]) when h >= 5, do: 1 + busy_days(t)
+  def busy_days([_ | t]), do: busy_days(t)
 end
