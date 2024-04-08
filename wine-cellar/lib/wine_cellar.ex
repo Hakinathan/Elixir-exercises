@@ -1,9 +1,14 @@
 defmodule WineCellar do
   def explain_colors do
-    [{:white, "Fermented without skin contact."}, {:red, "Fermented with skin contact using dark-colored grapes."}, {:rose, "Fermented with some skin contact, but not enough to qualify as a red wine."}]
+    [
+      {:white, "Fermented without skin contact."},
+      {:red, "Fermented with skin contact using dark-colored grapes."},
+      {:rose, "Fermented with some skin contact, but not enough to qualify as a red wine."}
+    ]
   end
 
   def filter(cellar, color, opts \\ []) do
+    
   end
 
   defp filter_by_year(wines, year)
